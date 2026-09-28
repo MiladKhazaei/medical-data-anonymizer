@@ -5,7 +5,8 @@ matplotlib==3.9.2
 shap==0.46.0
 pandas==2.2.2
 
-
+mne==
+mne_bids==
 pydicom==
 typing==
 datetime==

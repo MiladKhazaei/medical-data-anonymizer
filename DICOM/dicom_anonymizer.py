@@ -168,4 +168,4 @@ class MedicalDicomAnonymizer:
 
         # Stores de-identified file
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
-        ds.save_as(output_path, write_like_original=False)
+        ds.save_as(output_path, write_like_original=False)  
