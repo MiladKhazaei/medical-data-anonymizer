@@ -1,4 +1,5 @@
 def standardize_label(raw_text: str):
+
     # remove white space at the end and start then, change to lower char
     text = raw_text.strip().lower()
     
