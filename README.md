@@ -1,7 +1,18 @@
-# _Medical Data (EEG/MRI) Anonymizer_
+# BIDS Medical Multimodal Dataset (_EEG/MRI Anonymizer_)
 
 In medical images such as `MRI`, and electrophysiological  signal such as `EEG`, according to `HIPAA Safe Hurbor (45 CFR § 164.514)` and `DICOM PS 3.15`, we have to apply some rules on their data which comes from organization.
 
+The BIDS standard for structural/functional neuroimaging (MRI/CT) strictly requires images in NIfTI format (.nii or .nii.gz) accompanied by a JSON sidecar file (.json)
+
+Under the BIDS-EEG extension (
+
+Pernet et al., 2019
+), EDF (.edf), BrainVision (.vhdr), BDF (.bdf), and EEGLAB (.set) are officially accepted first-class formats directly in the BIDS root.
+mne_bids.write_raw_bids() handles complete BIDS export:
+When writing the EEG data, mne_bids sanitizes the binary header, applies the date shift (shift_days), and writes:
+bids_root/sub-01/ses-01/eeg/sub-01_ses-01_task-ltm_run-01_eeg.edf
+Corresponding sidecars: *_channels.tsv, *_eeg.json, *_events.tsv, and *_scans.tsv.
+Because the de-identified .edf file with its sidecars is already 100% BIDS-compliant, no secondary conversion format (like NIfTI) is needed.
 
 References
 ----------

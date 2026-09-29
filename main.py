@@ -9,7 +9,7 @@ from EEG.batch_anonymization import process_eeg_bids_pipeline
 def get_valid_modality_choice() -> str:
     """Get Inputs securely"""
     while True:
-        user_input = input("\nSelect Modality ───► ['mri' for DICOM | 'eeg' for EDF]: ").strip().lower()
+        user_input = input("\nSelect Modality ---> ['mri' for DICOM | 'eeg' for EDF]: ").strip().lower()
         if user_input in ("mri", "eeg"):
             return user_input
         print("Invalid selection. You must type exactly 'mri' or 'eeg'. Try again.")
@@ -81,8 +81,10 @@ def main():
     print("\nExecution Report:")
     print(f"  • Status: {result['status']}")
     print(f"  • Processed Files: {result['processed_count']}")
-    print(f"  • Sourcedata Directory: {result['sourcedata_directory']}")
-    print(f"  • NIfTI Directory: {result['nifti_directory']}")
+    if "sourcedata_directory" in result and result["sourcedata_directory"]:
+        print(f"  • Sourcedata Directory: {result['sourcedata_directory']}")
+    if "nifti_directory" in result and result["nifti_directory"]:
+        print(f"  • NIfTI Directory: {result['nifti_directory']}")
     if "error" in result:
         print(f"  • Error Details: {result['error']}")
 

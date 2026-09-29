@@ -11,7 +11,7 @@ def process_eeg_bids_pipeline(
     session_id: str,
     shift_days: int = 145
 ) -> Dict[str, Any]:
-    """آداپتور یکپارچه پردازش فایل‌های EDF نوار مغز و استقرار در ساختار BIDS"""
+    """EDF-BIDS"""
     edf_files = sorted(list(source_dir.glob("*.edf")) + list(source_dir.glob("*.EDF")))
     if not edf_files:
         return {"status": "FAILED", "processed_count": 0, "error": f"No EDF files in {source_dir}"}
@@ -22,13 +22,13 @@ def process_eeg_bids_pipeline(
     for index, edf_path in enumerate(edf_files, start=1):
         run_id = f"{index:02d}"
         
-        # الف) خواندن جریان سیگنال بدون بارگذاری سنگین رم
+        # read raw EEG
         raw = mne.io.read_raw_edf(str(edf_path), preload=False, verbose=False)
         
-        # ب) پالایش رویدادها با تابع اعتبارسنجی‌شده شما
+        # Cleaned description
         raw = cleaned_annotations(raw)
 
-        # ج) تنظیم مسیر استاندارد BIDS-EEG
+        # BIDS-EEG standard path
         bids_path = mne_bids.BIDSPath(
             subject=clean_sub,
             session=clean_ses,
@@ -39,10 +39,10 @@ def process_eeg_bids_pipeline(
             extension=".edf",
             root=bids_root
         )
-        # د) گمنام‌سازی هدر باینری و انحراف تقویمی همگام
+        # date-shift (de-identification)
         anonymization_rules = {"daysback": shift_days, "keep_his": False}
 
-        # هـ) صدور به فرمت BIDS
+        # writes file according to bids
         mne_bids.write_raw_bids(
             raw=raw,
             bids_path=bids_path,

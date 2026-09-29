@@ -74,7 +74,7 @@ def process_dicom_bids_pipeline(
 
     # 4. Process slices sequentially and name them
     for index, file_path in enumerate(raw_files, start=1):
-        output_file_name = f"{subject_id}_{session_id}_slice-{index:04d}.dcm"
+        output_file_name = f"{clean_sub}_{clean_ses}_slice-{index:04d}.dcm"
         target_file_path = target_anat_dir / output_file_name
         
         try:
@@ -102,8 +102,8 @@ def process_dicom_bids_pipeline(
             nifti_dir = convert_dicom_to_bids_nifti(
                 dicom_dir=target_anat_dir,
                 bids_root=bids_root,
-                subject_id=subject_id,
-                session_id=session_id,
+                subject_id=clean_sub,
+                session_id=clean_ses,
                 acq_label="T1w"
             )
             print(f"[INFO] NIfTI conversion complete: {nifti_dir}")

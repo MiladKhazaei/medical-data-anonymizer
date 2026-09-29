@@ -1,0 +1,21 @@
+name	type	units	low_cutoff	high_cutoff	description	sampling_frequency	status	status_description
+EEG Fp1-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG F3-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG C3-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG P3-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG O1-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG F7-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG T3-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG T5-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG Fz-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG Fp2-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG F4-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG C4-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG P4-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG O2-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG F8-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG T4-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG T6-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG Cz-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG Pz-LE	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
+EEG A2-A1	EEG	µV	0.1	60.0	ElectroEncephaloGram	256.0	good	n/a
